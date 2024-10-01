@@ -1,0 +1,6 @@
+@Double_V_Partners_Test.Server_HostAddress = http://localhost:5110
+
+GET {{Double_V_Partners_Test.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
