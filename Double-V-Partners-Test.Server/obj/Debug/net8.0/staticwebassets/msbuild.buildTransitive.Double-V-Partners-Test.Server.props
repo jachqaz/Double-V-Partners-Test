@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Double-V-Partners-Test.Server.props" />
+</Project>

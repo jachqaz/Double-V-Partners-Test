@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Double-V-Partners-Test.Server.props" />
+</Project>
