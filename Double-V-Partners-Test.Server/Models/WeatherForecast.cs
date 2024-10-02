@@ -1,4 +1,4 @@
-namespace Double_V_Partners_Test.Server;
+namespace Double_V_Partners_Test.Server.models;
 
 public class WeatherForecast
 {

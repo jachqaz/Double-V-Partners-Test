@@ -1,3 +1,4 @@
+using Double_V_Partners_Test.Server.models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Double_V_Partners_Test.Server.Controllers;
