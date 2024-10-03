@@ -34,3 +34,6 @@ C:\Users\USUARIO\source\repos\Double-V-Partners-Test\Double-V-Partners-Test.Serv
 C:\Users\USUARIO\source\repos\Double-V-Partners-Test\Double-V-Partners-Test.Server\obj\Debug\net8.0\Double-V-Partners-Test.Server.genruntimeconfig.cache
 C:\Users\USUARIO\source\repos\Double-V-Partners-Test\Double-V-Partners-Test.Server\obj\Debug\net8.0\ref\Double-V-Partners-Test.Server.dll
 C:\Users\USUARIO\source\repos\Double-V-Partners-Test\Double-V-Partners-Test.Server\obj\Debug\net8.0\Double-V-Partners-Test.Server.sourcelink.json
+C:\Users\USUARIO\source\repos\Double-V-Partners-Test\Double-V-Partners-Test.Server\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\USUARIO\source\repos\Double-V-Partners-Test\Double-V-Partners-Test.Server\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\USUARIO\source\repos\Double-V-Partners-Test\Double-V-Partners-Test.Server\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll

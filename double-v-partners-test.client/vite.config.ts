@@ -43,14 +43,30 @@ export default defineConfig({
     },
     server: {
         proxy: {
-            '^/weatherforecast': {
-                target,
-                secure: false
-            },
             '^/getlistcategories': {
                 target,
                 secure: false
-            }
+            },
+            '^/deletefavoriteproduct': {
+                target,
+                secure: false
+            },
+            '^/getlistfavoriteproducts': {
+                target,
+                secure: false
+            },
+            '^/postfavoriteproduct': {
+                target,
+                secure: false
+            },
+            '^/getdetailproduct': {
+                target,
+                secure: false
+            },
+            '^/getlistproducts': {
+                target,
+                secure: false
+            },
         },
         port: 5173,
         https: {

@@ -1,7 +1,4 @@
-import {useEffect, useState} from 'react';
 import './App.css';
-import '@ionic/react/css/core.css';
-import {IonApp, IonCard, IonCardContent, IonContent, IonText, setupIonicReact} from '@ionic/react';
 /* Basic CSS for apps built with Ionic */
 import '@ionic/react/css/normalize.css';
 import '@ionic/react/css/structure.css';
@@ -13,86 +10,60 @@ import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
-import {Forecast} from "../domain/forecast.ts";
-import {Category} from "../domain/category.ts";
+/* Ionic */
+import '@ionic/react/css/core.css';
+import {IonApp, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, setupIonicReact} from '@ionic/react';
+// @ts-ignore
+import {Redirect, Route} from 'react-router-dom';
+import {IonReactRouter} from '@ionic/react-router';
+import Tab1 from './pages/Tab1';
+import Tab2 from './pages/Tab2';
+import Tab3 from './pages/Tab3';
 
 setupIonicReact();
 
 
 function App() {
-    const [categories, setCategories] = useState<Category[]>();
-    const [forecasts, setForecasts] = useState<Forecast[]>();
-
-    useEffect(() => {
-        getCategories();
-        populateWeatherData();
-    }, []);
-
-    const loading = <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a
-        href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em>
-    </p>
-
-    const categoriesTemplate = categories === undefined ? loading :
-        <IonCard>
-            <IonCardContent>
-                {categories.map(category =>
-                    <>
-                        <IonText>{category.id}</IonText>
-                        <IonText>{category.name}</IonText>
-                        <IonText>{category.image}</IonText>
-                        <IonText>{category.creationAt}</IonText>
-                        <IonText>{category.updatedAt}</IonText>
-                    </>
-                )}
-            </IonCardContent>
-        </IonCard>;
-
-    const contents = forecasts === undefined ? loading :
-        <table className="table table-striped" aria-labelledby="tableLabel">
-            <thead>
-            <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
-            </tr>
-            </thead>
-            <tbody>
-            {forecasts.map(forecast =>
-                <tr key={forecast.date}>
-                    <td>{forecast.date}</td>
-                    <td>{forecast.temperatureC}</td>
-                    <td>{forecast.temperatureF}</td>
-                    <td>{forecast.summary}</td>
-                </tr>
-            )}
-            </tbody>
-        </table>;
-
     return (
+        // <IonApp>
+        //     <IonContent fullscreen>
+        //         <div>
+        //             {categoriesTemplate}
+        //         </div>
+        //     </IonContent>
+        // </IonApp>
         <IonApp>
-            <IonContent fullscreen>
-                <div>
-                    <h1 id="tableLabel">Weather forecast</h1>
-                    <p>This component demonstrates fetching data from the server.</p>
-                    {contents}
-                    {categoriesTemplate}
-                </div>
-            </IonContent>
+            <IonReactRouter>
+                <IonTabs>
+                    <IonRouterOutlet>
+                        <Route exact path="/tab1">
+                            <Tab1/>
+                        </Route>
+                        <Route exact path="/tab2">
+                            <Tab2/>
+                        </Route>
+                        <Route path="/tab3">
+                            <Tab3/>
+                        </Route>
+                        <Route exact path="/">
+                            <Redirect to="/tab1"/>
+                        </Route>
+                    </IonRouterOutlet>
+                    <IonTabBar slot="bottom">
+                        <IonTabButton tab="tab1" href="/tab1">
+                            <IonLabel>Categories</IonLabel>
+                        </IonTabButton>
+                        <IonTabButton tab="tab2" href="/tab2">
+                            <IonLabel>Products</IonLabel>
+                        </IonTabButton>
+                        <IonTabButton tab="tab3" href="/tab3">
+                            <IonLabel>Favorites</IonLabel>
+                        </IonTabButton>
+                    </IonTabBar>
+                </IonTabs>
+            </IonReactRouter>
         </IonApp>
     );
-
-    async function populateWeatherData() {
-        const response = await fetch('weatherforecast');
-        const data = await response.json();
-        setForecasts(data);
-    }
-
-    async function getCategories() {
-        const response = await fetch('getlistcategories');
-        const data = await response.json();
-        setCategories(data);
-    }
 }
 
 export default App;
