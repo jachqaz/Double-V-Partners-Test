@@ -17,7 +17,7 @@ const Tab1: React.FC = () => {
     const categoriesTemplate = categories === undefined ? loading :
         <IonList>
             {categories.map(category =>
-                <CategoryComponent id={category.id} name={category.name} image={category.image}
+                <CategoryComponent key={category.id} id={category.id} name={category.name} image={category.image}
                                    creationAt={category.creationAt}
                                    updatedAt={category.updatedAt}></CategoryComponent>
             )}

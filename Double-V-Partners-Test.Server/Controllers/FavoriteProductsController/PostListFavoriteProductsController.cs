@@ -19,12 +19,14 @@ public class PostFavoriteProductController : ControllerBase
         _context = context;
     }
 
-    [HttpDelete(Name = "PostFavoriteProduct")]
+    [HttpPost(Name = "PostFavoriteProduct")]
     public async Task<ActionResult<Product>> PostFavoriteProduct(Product favoriteProduct)
     {
+        favoriteProduct.Favorite = true;
+        _context.Categories.Update(favoriteProduct.Category);
         _context.FavoriteProducts.Add(favoriteProduct);
         await _context.SaveChangesAsync();
 
-        return CreatedAtAction("GetFavoriteProduct", new { id = favoriteProduct.Id }, favoriteProduct);
+        return NoContent();
     }
 }

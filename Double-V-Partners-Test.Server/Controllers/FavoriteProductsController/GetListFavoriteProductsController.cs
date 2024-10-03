@@ -25,8 +25,8 @@ public class GetListFavoriteProductsController : ControllerBase
     {
         try
         {
+            _context.Categories.ToList();
             var favoriteProducts = _context.FavoriteProducts.ToListAsync().Result;
-
             return favoriteProducts ?? [];
         }
         catch (Exception ex)

@@ -2,13 +2,23 @@ import {IonCard, IonCardContent, IonImg, IonItem, IonRow, IonText} from '@ionic/
 import './CategoryComponent.css';
 import {Product} from "../models/product.ts";
 import CategoryComponent from "./CategoryComponent.tsx";
+import {CiBookmark} from "react-icons/ci";
+import {FaBookmark} from "react-icons/fa";
+import {useContext} from 'react';
+import {FavoriteContext} from "../App.tsx";
 
 function ProductComponent(product: Product) {
+    const clickFavorite = useContext(FavoriteContext);
     return (
-        <IonItem key={product.id}>
+        <IonItem>
             <IonCard>
                 <IonImg alt="Silhouette of mountains" src={product.images[0]}/>
                 <IonCardContent>
+                    <IonRow>
+                        <div onClick={() => clickFavorite(product)}>
+                            {product.favorite ? <FaBookmark size={40}/> : <CiBookmark size={40}/>}
+                        </div>
+                    </IonRow>
                     <IonRow>
                         <IonText style={{fontSize: '18px', fontWeight: 'bold', textAlign: 'center'}}>
                             {product.id}. {product.title} <label style={{color: 'red'}}>${product.price}</label>

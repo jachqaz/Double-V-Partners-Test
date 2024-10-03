@@ -23,7 +23,6 @@ public class DeleteFavoriteProductController : ControllerBase
     {
         var favoriteProduct = await _context.FavoriteProducts.FindAsync(id);
         if (favoriteProduct == null) return NotFound();
-
         _context.FavoriteProducts.Remove(favoriteProduct);
         await _context.SaveChangesAsync();
 

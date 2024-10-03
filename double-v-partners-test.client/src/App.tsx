@@ -19,19 +19,13 @@ import {IonReactRouter} from '@ionic/react-router';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
+import {createContext} from "react";
 
 setupIonicReact();
-
+export const FavoriteContext = createContext("FavoriteContext");
 
 function App() {
     return (
-        // <IonApp>
-        //     <IonContent fullscreen>
-        //         <div>
-        //             {categoriesTemplate}
-        //         </div>
-        //     </IonContent>
-        // </IonApp>
         <IonApp>
             <IonReactRouter>
                 <IonTabs>

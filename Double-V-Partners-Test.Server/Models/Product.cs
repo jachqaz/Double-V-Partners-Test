@@ -10,4 +10,5 @@ public class Product
     public string? CreationAt { get; set; }
     public string? UpdatedAt { get; set; }
     public Category? Category { get; set; }
+    public bool Favorite { get; set; } = false;
 }

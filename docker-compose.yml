@@ -1,0 +1,15 @@
+﻿version: "3.8"  # Specify the Docker Compose version
+
+services:
+  sql_server:
+    image: mcr.microsoft.com/mssql/server  # Use the official Microsoft SQL Server image
+    environment:
+      ACCEPT_EULA: Y  # Accept the EULA during container startup
+      SA_PASSWORD: Password_123#  # Set the SA password for SQL Server
+    ports:
+      - "1433:1433"  # Map container port 1433 to host port 1433
+    restart: unless-stopped  # Restart the container automatically if it crashes
+
+volumes:
+  sql_data:  # Define a volume to persist SQL Server data
+    external: true  # Mount an existing volume from your host system
