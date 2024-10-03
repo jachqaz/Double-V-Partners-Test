@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Double-V-Partners-Test.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9bc370579d8d2d8d420820fa2ac0ae8ed45ef18f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f6c486161cd753ef8db538b6ad0926226c3625e6")]
 [assembly: System.Reflection.AssemblyProductAttribute("Double-V-Partners-Test.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Double-V-Partners-Test.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
